@@ -1,0 +1,10 @@
+.Header{
+    margin-top: 10px;
+}
+.container-fluid{
+    width: 98vw;
+    height: 98vh;
+}
+.Middle{
+    height: 200px;
+}

@@ -1,4 +1,50 @@
+<div class="container-fluid">
+    <!--  -->
+    <div class="row align-items-center Header">
+        <div class="col text-left Logo">
+            <img src="../assets/img/Logo.png" alt="Dashboard Logo">
+        </div>
+        <div class="col text-right ">
+            <a class="btn btn-lg btn-primary" (click)="GoAuthorization()">Войти</a>
+        </div>
+    </div>
+    <!--  -->
+<div class="row Middle">
+    <!--  -->
+        <!-- A vertical navbar -->
+        <nav class="navbar bg-light">
+            <!-- Links -->
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Дашборд</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Преподаватели</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Проектная деятельность</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Группы</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Студенты</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Специальности</a>
+            </li>
+            </ul>
+        
+        </nav>
+    <!--  -->
+        <div class="col Content">
+            <router-outlet></router-outlet>
+        </div>
+</div>    
+    <!--  -->
+    <div class="row Footer">
 
+    </div>
+    <!--  -->
+</div>
 
-
-<router-outlet></router-outlet>
