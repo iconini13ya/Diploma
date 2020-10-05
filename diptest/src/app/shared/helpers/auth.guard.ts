@@ -8,11 +8,16 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService){}
+  key;
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      // if(this.authService.)
-    return true;
+    if(this.key!=="undefined"){
+      return true;  
+    }
+    else{
+      return false
+    }
   }
   
 }

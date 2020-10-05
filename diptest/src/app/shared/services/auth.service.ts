@@ -10,8 +10,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
   private baseUrl = "http://dashboard.kholodov.xyz/api/auth";
 
-  public auth(authinfo){
-    console.log(authinfo);
-    return this.http.post(this.baseUrl,authinfo).toPromise();
+  public auth(login,password){
+    let data={
+      "login":login,
+      "password":password
+    }
+    return this.http.post(this.baseUrl,data).toPromise();
   }
 }

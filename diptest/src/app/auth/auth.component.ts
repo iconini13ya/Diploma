@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthGuard } from '../shared/helpers/auth.guard';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -8,16 +10,17 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private authservice:AuthService) { }
-
+  constructor(private authservice:AuthService,private guard: AuthGuard, private router:Router) { }
+  login;
+  password;
   async ngOnInit() {
-    var body = {
-      login: "tolstikov",
-      password: "root"
+  }
+  async auth(){
+    this.guard.key=await this.authservice.auth(this.login,this.password);
+    console.log(this.guard.key)
+    if (this.guard.key!=="undefined"){
+      this.router.navigate(["/home"]);
     }
-   let key = await this.authservice.auth(body);
-   console.log(key);
-    
   }
 
 }
