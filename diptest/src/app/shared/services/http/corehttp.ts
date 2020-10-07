@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ErrorHandler } from '@angular/core';
 import { Observable } from 'rxjs';
 
 // proto class for http connections
@@ -11,19 +12,35 @@ export class Httpcore {
     }
 
     private get(url:string): Observable<any>{
-        return this.http.get(this.getUrl(url));
+        try {
+            return this.http.get(this.getUrl(url));
+        } catch (error) {
+            return error;
+        }     
     }
 
     private post(url:string,data:any): Observable<any>{
-        return this.http.post(this.getUrl(url),data);
+        try {
+            return this.http.post(this.getUrl(url),data);  
+        } catch (error) {
+            error;
+        }
     }
 
     private put(url:string, data:any): Observable<any>{
-        return this.http.put(this.getUrl(url),data);
+        try {
+            return this.http.put(this.getUrl(url),data);
+        } catch (error) {
+            return error;
+        }
     }
 
     private delete(url:string):Observable<any>{
-        return this.http.delete(this.getUrl(url));
+        try {
+            return this.http.delete(this.getUrl(url));
+        } catch (error) {
+            return error;
+        }
     }
 
     public getAll(): Promise<any[]>{

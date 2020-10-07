@@ -14,13 +14,17 @@ export class AuthComponent implements OnInit {
   login;
   password;
   async ngOnInit() {
+    this.login="tolstikov";
+    this.password="root";
   }
   async auth(){
     this.guard.key=await this.authservice.auth(this.login,this.password);
     console.log(this.guard.key)
     if (this.guard.key!=="undefined"){
+      localStorage.setItem("token",JSON.stringify(this.guard.key));
       this.router.navigate(["/home"]);
     }
   }
+  
 
 }
