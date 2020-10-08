@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Httpcore } from './corehttp';
 
@@ -6,12 +7,7 @@ import { Httpcore } from './corehttp';
 })
 export class UserService extends Httpcore {
 
-  constructor() {
-    super();
-   }
-   
-
-   login() {
-     
+  constructor(public http: HttpClient) {
+    super(http,"/teachers");
    }
 }
