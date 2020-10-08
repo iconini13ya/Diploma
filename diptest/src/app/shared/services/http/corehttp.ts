@@ -46,4 +46,7 @@ export class Httpcore {
     public deleteOneByid(id:number): Promise<any>{
         return this.delete(`${this.path}/ ${id}`).toPromise();
     }
+    public getauthefication(data:any):Promise<any>{
+        return this.http.post("http://dashboard.kholodov.xyz/api/auth",data).toPromise();
+    }
 }   
