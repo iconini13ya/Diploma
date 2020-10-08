@@ -10,22 +10,17 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private authservice:AuthService,private guard: AuthGuard, private router:Router) { }
+  constructor(private authservice:AuthService) { }
   login;
   password;
   async ngOnInit() {
     this.login="tolstikov";
     this.password="root";
   }
-  async auth(){
-    // console.log(JSON.parse(localStorage.getItem("token")).token);
-    this.guard.key=await this.authservice.auth(this.login,this.password);
-    console.log(this.guard.key)
-    if (this.guard.key!=="undefined"){
-      localStorage.setItem("token",JSON.stringify(this.guard.key));
-      this.router.navigate(["/home"]);
-    }
+  Auth(){
+    this.authservice.Login(this.login,this.password);
   }
+  
   
 
 }
