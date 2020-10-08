@@ -6,11 +6,19 @@ import { Observable } from 'rxjs';
 export class MyHttpInterceptor implements HttpInterceptor{
     intercept(req: HttpRequest<any>,next: HttpHandler):Observable<HttpEvent<any>>{
         let token = JSON.parse(localStorage.getItem("token")).token;
-        const reqWithAuth= req.clone({
-            setHeaders:{
-                Authorization: `Bearer ${token}`
-            }
-        });
-        return next.handle(reqWithAuth);
+        if(token !== ""){
+            const reqWithAuth= req.clone({
+                setHeaders:{
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return next.handle(reqWithAuth);
+        }
+        else{
+            const reqWithAuth= req.clone({
+            });
+            return next.handle(reqWithAuth);
+        }
+        
     }
 }
