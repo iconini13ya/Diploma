@@ -18,6 +18,7 @@ export class AuthComponent implements OnInit {
     this.password="root";
   }
   async auth(){
+    // console.log(JSON.parse(localStorage.getItem("token")).token);
     this.guard.key=await this.authservice.auth(this.login,this.password);
     console.log(this.guard.key)
     if (this.guard.key!=="undefined"){
