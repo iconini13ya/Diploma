@@ -12,35 +12,19 @@ export class Httpcore {
     }
 
     private get(url:string): Observable<any>{
-        try {
-            return this.http.get(this.getUrl(url));
-        } catch (error) {
-            return error;
-        }     
+        return this.http.get(this.getUrl(url));   
     }
 
     private post(url:string,data:any): Observable<any>{
-        try {
-            return this.http.post(this.getUrl(url),data);  
-        } catch (error) {
-            error;
-        }
+     return this.http.post(this.getUrl(url),data);  
     }
 
     private put(url:string, data:any): Observable<any>{
-        try {
-            return this.http.put(this.getUrl(url),data);
-        } catch (error) {
-            return error;
-        }
+        return this.http.put(this.getUrl(url),data);
     }
 
     private delete(url:string):Observable<any>{
-        try {
-            return this.http.delete(this.getUrl(url));
-        } catch (error) {
-            return error;
-        }
+        return this.http.delete(this.getUrl(url));
     }
 
     public getAll(): Promise<any[]>{
