@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuard } from '../shared/helpers/auth.guard';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -10,10 +9,13 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private authservice:AuthService) { }
+  constructor(private authservice:AuthService,private router:Router) { }
   login;
   password;
-  async ngOnInit() {
+  ngOnInit() {
+    if (this.authservice.isLoggedIn == true){
+      this.router.navigate(["/home"]);
+    }
     this.login="tolstikov";
     this.password="root";
   }
