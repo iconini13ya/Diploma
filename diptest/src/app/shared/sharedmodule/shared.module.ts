@@ -15,7 +15,8 @@ import { MainComponent } from './main/main.component';
     SharedRoutingModule
   ],
   exports:[
-    MainComponent
+    SidebarComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }
