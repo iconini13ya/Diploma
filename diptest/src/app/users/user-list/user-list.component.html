@@ -11,8 +11,15 @@
         <div class="col content">
 
             <div class="row ">
-                <div class="col find">
-                    Поиск
+                <div class="col">
+                    <div class="row align-items-center">
+                        <div class="col-md-auto">
+                            <a type="button" class="btn btn-primary">Найти</a>
+                        </div>
+                        <div class="col container-fluid">
+                            <input type="text" style="width: 100%;">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -22,9 +29,62 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col users">
-                    Пользователи
+            <div class="row users">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            id
+                        </div>
+                        <div class="col">
+                            Имя
+                        </div>
+                        <div class="col">
+                            Фамилия
+                        </div>
+                        <div class="col">
+                            Отчетсво
+                        </div>
+                        <div class="col">
+                            Email
+                        </div>
+                        <div class="col">
+                            Номер телефона
+                        </div>
+                        <div class="col">
+                            Подробнее
+                        </div>
+                        <div>
+                            Delete
+                        </div>
+                    </div>
+                    <div  *ngFor="let user of users">
+                        <div class="row">
+                            <div class="col">
+                                {{user.id}}
+                            </div>
+                            <div class="col">
+                                {{user.name}}
+                            </div>
+                            <div class="col">
+                                {{user.surname}}
+                            </div>
+                            <div class="col">
+                                {{user.patronymic}}
+                            </div>
+                            <div class="col">
+                                {{user.email}}
+                            </div>
+                            <div class="col">
+                                {{user.phone}}
+                            </div>
+                            <div class="col">
+                                About
+                            </div>
+                            <div>
+                                delete
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
