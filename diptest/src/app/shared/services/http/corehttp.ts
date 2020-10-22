@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 // proto class for http connections
 export class Httpcore {
-    baseUrl:"http://dashboard.kholodov.xyz/api/";
+    baseUrl="http://dashboard.kholodov.xyz/api/";
     constructor(public http: HttpClient, public path: string){}
     
     private getUrl(url:string):string{
@@ -12,7 +12,7 @@ export class Httpcore {
     }
 
     private get(url:string): Observable<any>{
-        return this.http.get(this.getUrl(url));   
+        return this.http.get(this.getUrl(url));  
     }
 
     private post(url:string,data:any): Observable<any>{
